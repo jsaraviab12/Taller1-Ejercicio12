@@ -62,7 +62,7 @@ public class Interfaz12 extends javax.swing.JFrame {
                 cmdCalcularActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 80, 30));
 
         cmdBOrrar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
         cmdBOrrar.setForeground(new java.awt.Color(153, 0, 0));
@@ -87,12 +87,27 @@ public class Interfaz12 extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         txtDias.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtDias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDiasKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 180, 70, -1));
 
         txtValor.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 16)); // NOI18N
+        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 250, 130, -1));
 
         txtPelis.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtPelis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPelisKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPelis, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 120, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,6 +159,38 @@ public class Interfaz12 extends javax.swing.JFrame {
        
         txtPelis.requestFocusInWindow();
     }//GEN-LAST:event_cmdBOrrarActionPerformed
+
+    private void txtPelisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPelisKeyTyped
+          char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar())){ 
+              getToolkit().beep(); 
+               
+              evt.consume();
+          }
+    }//GEN-LAST:event_txtPelisKeyTyped
+
+    private void txtDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiasKeyTyped
+          char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar())){ 
+              getToolkit().beep(); 
+               
+              evt.consume();
+          }
+    }//GEN-LAST:event_txtDiasKeyTyped
+
+    private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
+         char c=evt.getKeyChar();
+             
+         
+        
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+    }//GEN-LAST:event_txtValorKeyTyped
 
     /**
      * @param args the command line arguments
