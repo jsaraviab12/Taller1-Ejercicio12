@@ -5,6 +5,8 @@
  */
 package newpackage;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jesus
@@ -109,33 +111,38 @@ public class Interfaz12 extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         String res1,res2;
-        double pre,op1, op2;
-        if (txtPresu.getText().trim().isEmpty() ){
-            JOptionPane.showMessageDialog(this,"Por favor digiete el valor del presupuesto","Error",JOptionPane.ERROR_MESSAGE);
-            txtPresu.requestFocusInWindow();
-        }else{
-            try{
-                pre= Double.parseDouble(txtPresu.getText());
-                op1=(pre*40)/100;
-                op2=(pre*30)/100;
-                res1=String.valueOf(op1);
-                res2=String.valueOf(op2);
-                txtGine.setText(res1);
-                txtTrau.setText(res2);
-                txtPedia.setText(res2);
-            } catch (Exception e){
-                JOptionPane.showMessageDialog(this,"Ingrese numero valido","Error", JOptionPane.ERROR_MESSAGE);
-                txtPresu.requestFocusInWindow();
+       long pelis,op1, op2,dias;
+        if (txtPelis.getText().trim().isEmpty() ){
+            JOptionPane.showMessageDialog(this,"Por favor digiete La cantida de peliculas","Error",JOptionPane.ERROR_MESSAGE);
+            txtPelis.requestFocusInWindow();
+        }else if (txtDias.getText().trim().isEmpty() ){
+            JOptionPane.showMessageDialog(this,"Por favor digiete el numero de dias","Error",JOptionPane.ERROR_MESSAGE);
+            txtDias.requestFocusInWindow();
+        } else{
+            pelis = Long.parseLong(txtPelis.getText());
+            dias =  Long.parseLong(txtDias.getText());
+              if(pelis == 1){
+                op1=1500*dias;
+                  res1=String.valueOf(op1);
+                  txtValor.setText(res1);
+                  }else{
+                  op1=pelis-1;
+                  op2=(op1*1500)*dias;
+                  res1=String.valueOf(op2);
+                  txtValor.setText(res1);
+                  }
+                
+                
             }
-        }
+        
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdBOrrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBOrrarActionPerformed
-        txtPresu.setText("");
-        txtGine.setText("");
-        txtPedia.setText("");
-        txtTrau.setText("");
-        txtPresu.requestFocusInWindow();
+        txtValor.setText("");
+        txtDias.setText("");
+        txtPelis.setText("");
+       
+        txtPelis.requestFocusInWindow();
     }//GEN-LAST:event_cmdBOrrarActionPerformed
 
     /**
